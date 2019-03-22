@@ -1,11 +1,13 @@
 package at.htl.klassestudent;
 
-public class Student implements Comparable<Student> {
+public class Student implements Comparable<Student>{
 
     private String vorname;
     private String nachname;
+    private int katNr;
 
     public Student() {
+
     }
 
     public Student(String vorname, String nachname) {
@@ -29,10 +31,16 @@ public class Student implements Comparable<Student> {
         this.nachname = nachname;
     }
 
+
     public int compareTo(Student o) {
         if (this.nachname.equals(o.getNachname())) {
             return this.vorname.compareTo(o.getVorname());
         }
         return this.nachname.compareTo(o.getNachname());
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s, %s",nachname ,vorname);
     }
 }
